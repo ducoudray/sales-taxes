@@ -18,34 +18,14 @@
             Description = description;
             IsImported = isImported;
             Type = type;
+        }      
+
+        public string PrintProductLine(double totalItem)
+        {
+            var quantityString = "";
+            if (Quantity > 1)
+                quantityString = $" ({Quantity} @ { totalItem })";
+            return $"{Description}: {string.Format("{0:F2}", totalItem * Quantity)}{quantityString}";            
         }
-
-
-        //private bool isTaxable()
-        //{
-        //    return Type == System.Type.Other;
-        //}
-        //private double CalcTax()
-        //{
-        //    if (_isImported)
-        //        _importedTax += Math.Ceiling(Price * 0.05 * 20) / 20;
-        //    return _importedTax + _basicTax;
-        //}
-        //public void CalcTotal()
-        //{
-        //    var tax = CalcTax();            
-        //    Total = Math.Round((tax + Price)*Quantity,2);
-        //    _totalTax = tax * Quantity;
-        //}
-
-        //public string PrintLineProduct()
-        //{
-        //    var quantityString = "";
-        //    if (Quantity > 1)
-        //        quantityString = $" ({ Quantity} @ { Math.Round(Price + _basicTax + _importedTax, 2)})";
-        //    return $"{Description}: {string.Format("{0:F2}", Total)}{quantityString}";
-        //}
-
-
     }
 }

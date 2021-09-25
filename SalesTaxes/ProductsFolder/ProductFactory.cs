@@ -17,9 +17,7 @@ namespace SalesTaxes.ProductsFolder
             var quantity = int.Parse(inputArray[0]);
             var price = double.Parse(inputArray[^1]);
             var description = inputArray[1];
-            var isImported = false;
-            if (description.ToUpper() == "IMPORTED")
-                isImported = true;
+            var isImported = description.ToUpper() == "IMPORTED";                        
             for (int i = 2; i < inputArray.Length - 2; i++)
             {
                 description += " " + inputArray[i];
